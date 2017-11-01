@@ -1,0 +1,26 @@
+\section{Measurement of Nucleus Periphery Intensity}
+
+To simplify the development, we limit our work on single nucleus. Load the image stack \textbf{NPCsingleCell.tif} . This is a hyperstack sequence. Slide the scroll bar at the bottom back-and-forth to watch the process of intensity changes. Histone signal is more or less constant, but the NPC signal (labeled in green) shows strong accumulation to the nuclear membrane. To quantify this process, we measure the intensity changes in the nuclear rim over time.
+
+For this we first need to identify where the nuclear rim is (``segmentation''). We then have a mask for the rim. Using this mask we measure the changes in intensity over time. We first write a macro for the nucleus rim segmentation.
+
+\subsection{Segmentation of Nucleus Rim}
+
+To segment the nucleus rim, we take following steps. It's rather long but if you once write a macro everything could be done by running the macro by a single click.
+
+\begin{enumerate}
+  \item Split channels (fig. \ref{fig:originalNucleus})
+    \item Blur the image (fig. \ref{fig:BlurredNucleus})
+    \item Binarize the image by intensity thresholding (fig. \ref{fig:BInarizedNucleus})
+    \item Remove other Nucleus
+    \item Duplicate the image
+
+\begin{enumerate}
+        \item Erode one of them (fig. \ref{fig:erodedBinary})
+
+\item Dilate one of them (fig. \ref{fig:dilatedBinary})
+
+\end{enumerate}
+    \item Subtract the eroded from the dilated (fig. \ref{fig:NucleusRim})
+
+\end{enumerate}

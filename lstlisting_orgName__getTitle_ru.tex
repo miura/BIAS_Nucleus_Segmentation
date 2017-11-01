@@ -1,0 +1,23 @@
+\begin{lstlisting}
+orgName = getTitle();
+run("Split Channels");
+c1 = "C1-" + orgName;
+c2 = "C2-" + orgName;
+
+selectWindow(c1);
+nucorgID = getImageID();
+nucrimID = nucseg( nucorgID );
+selectImage(nucrimID);
+c1 = getTitle();
+
+opt = "area mean centroid perimeter shape integrated limit display redirect=" + c2 + " decimal=3";
+run("Set Measurements...", opt);
+selectWindow(c1);
+for (i =0; i < nSlices; i++){
+	setSlice(i+1);
+	run("Create Selection");
+	run("Make Inverse");
+	run("Measure");
+}
+
+\end{lstlisting}

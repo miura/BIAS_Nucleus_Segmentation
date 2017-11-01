@@ -1,0 +1,7 @@
+\textbf{sourcecode} : \href{http://www.example.com/contents}{code/code\_recordNucSegV3\_function.ijm}
+
+The lines I added are only three: In line 1, I declared that this is a function with name "nucseg" that takes a single argument orgID. In the original code, orgID, which is the imageID of the original histone channel image was captured using getImageID command. We do not need this in this function since the imageID of the original histone channel image stack will be the input value, so the line 2 is commented out.
+
+One line is inserted at line 20, to capture the imageID of resulting segmented image stack. This value, which we call ``resultID'' in the function, will be returned in the line 27. In the last line, a curly brace is added to close the function boundary.
+
+We can paste this code below the intensity measurement macro, and call thus function to segment the nucleus rim. In below, I show only the part in the intensity measurement macro where function call was added, line 6 to line 10.

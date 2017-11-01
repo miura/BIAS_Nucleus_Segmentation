@@ -1,0 +1,149 @@
+
+\iflatexml
+\documentclass[11pt,a4paper,oneside]{report}
+\fi
+
+% \usepackage{mathpazo} % Not (yet) supported by LaTeXML.
+ 
+\linespread{1.05}        
+% \usepackage[scaled]{helvet} % Not (yet) supported by LaTeXML.
+ 
+% \usepackage{courier} % Not (yet) supported by LaTeXML.
+\normalfont
+% \usepackage[T1]{fontenc} % Not (yet) supported by LaTeXML.
+
+\usepackage[footnotesize]{caption}
+\linespread{1.05}
+\parskip 7.2pt
+\usepackage{setspace}
+
+\onehalfspacing
+\usepackage{framed}
+\usepackage{pdfsync}
+\setlength{\parindent}{0in}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+
+\usepackage{amssymb,amsfonts,textcomp}
+\usepackage{amssymb,amsfonts,textcomp}
+% \usepackage{amssymb,amsfonts,textcomp} % Not (yet) supported by LaTeXML.
+\usepackage{color}
+
+\definecolor{gray09}{rgb}{0.9,0.9,0.9}  
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{blue}{rgb}{0,0,1}
+\definecolor{lightblue}{rgb}{0,0.8,1}
+\definecolor{Dark}{gray}{.2}
+\definecolor{Medium}{gray}{.6}
+\definecolor{Light}{gray}{.8}
+\definecolor{shadecolor}{rgb}{0.9, 0.9, 1}
+% \usepackage{epstopdf} % Not (yet) supported by LaTeXML.
+\usepackage{natbib}
+
+% First macro on next line not (yet) supported by LaTeXML: 
+% \bibpunct{(}{)}{;}{a}{,}{,}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=true, 
+	citecolor=blue, 
+	linkcolor=black, 
+	urlcolor=black}
+% \usepackage{pdfpages} % Not (yet) supported by LaTeXML.
+\usepackage{supertabular}
+
+\usepackage{array}
+
+\usepackage{supertabular}
+
+\usepackage{hhline}
+\usepackage{float}
+
+\usepackage{subfig}
+\usepackage{fancyhdr}
+
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancyplain}
+\renewcommand{\chaptermark}[1][]{\markboth{#1}{}}
+
+\renewcommand{\sectionmark}[1][]{\markright{\thesection\ #1}{}}
+
+ 
+\lhead{\fancyplain{}{\textit{EMBL BIAS 2016} }}
+\chead{}
+\rhead{\fancyplain{}{\textit{\rightmark} }}
+\lfoot{}
+\cfoot{\fancyplain{}{\thepage}}
+\rfoot{}
+\newenvironment{indentexercise}[1]
+{{\setlength{\leftmargin}{2em}}
+\textbf{Exercise \thesubsection-#1}
+\begin{list}
+{}
+	\item
+}
+{\end{list}
+}
+\newenvironment{indentFiji}
+{
+\begin{list}
+{}
+         {\setlength{\leftmargin}{1em}}
+         \item[]
+}
+{\end{list}
+}
+\newenvironment{indentCom}
+{
+\begin{list}
+{}
+         {\setlength{\leftmargin}{1em}}
+         \item[]
+}
+{\end{list}
+}
+\newcommand{\ijmenu}[1][]{\texttt{\small#1}}
+\newcommand{\ilcom}[1][]{\texttt{\small#1}}
+\newcommand{\tab}[][]{\hspace*{3em}}
+\newcommand{\HRule}[][]{\rule{\linewidth}{0.5mm}}
+% \usepackage{textcomp} % Not (yet) supported by LaTeXML.
+
+\newcommand*{\micro}[][]{\textmu}
+\usepackage{listings}
+
+\lstset{ 
+basicstyle=\small\ttfamily, 
+numbers=left,                   
+numberstyle=\footnotesize,      
+stepnumber=1,                   
+numbersep=5pt,                  
+backgroundcolor=\color{gray09},  
+keywordstyle=\color{red}, 	
+showspaces=false,               
+showstringspaces=false,         
+showtabs=false,                 
+tabsize=2,                      
+captionpos=b,                   
+breaklines=true,                
+title=\lstname,                 
+escapeinside={\%*}{*)},         
+morekeywords={*,...},            
+morecomment=[l]{//},
+morecomment=[s]{/*}{*/},
+morestring=[b]",
+}
+\newcommand*{\titleTH}[][]{\begingroup
+\raggedleft
+\HRule\\
+\vspace*{\baselineskip}
+{\Large Kota Miura}\\[0.167\textheight]
+
+{\bfseries BIAS course 2016}\\[\baselineskip]
+{\textcolor{Medium}{\Huge Intensity Dynamics at the Periphery of Nucleus }}\\[\baselineskip]
+{\small June, 2016}\par
+\vfill
+
+{\small Compiled on \today}\par
+{\Large EMBL Heidelberg}\par
+\vspace*{3\baselineskip}
+\HRule\\
+\endgroup}

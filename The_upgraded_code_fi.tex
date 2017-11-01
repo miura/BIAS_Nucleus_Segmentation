@@ -1,0 +1,11 @@
+The upgraded code first captures the title of the multi-channel image. This will be used in the third and fourth lines. Then the channels are separated into two stacks. Since we know the rule of how the resulting image stack names are, we construct titles each for channel 1 and channel 2. We then acquire image IDs. Finally,  we compose the argument for the ``Set Measurement'' and generalize the window name in ``setWindow'' line.
+
+\begin{indentexercise}
+{1}
+Merge rim and NPC image stacks and test the code. 
+
+\end{indentexercise}
+
+\subsubsection{Adding for-loop}
+
+As you may have already realized, the code above measures only one frame. To measure the intensity changes over time, we need to add some looping to do the measurement. We already did this in thefirst section so you already know how it works. We just need to modify that code and is very simple.

@@ -1,0 +1,15 @@
+\textbf{sourcecode} : \href{http://www.example.com/contents}{code/code\_redirectedMeasurement.ijm}
+
+\begin{indentexercise}
+{2}
+Merge rim and NPC image stacks and test the code to see if it measures intensity in the nuclear rim over time frames. 
+
+\end{indentexercise}
+
+\subsubsection{Integrating Segmentation and Measurements}
+
+Finally, we can integrate segmentation macro and intensity measurement macro. With the last code, we used  two-channel stack with rim mask and the NCP signal. All we need to do is to insert the segmentation part between line 4 and line 5 since if we use the original multi-channel stack, c2 will be the name of unprocessed histone stack.
+
+A simple way to do this is to convert the segmentation macro to a use-defined function. Like all the macro commands that you see in the ImageJ macro function reference list, you could create one by your self. To do so, we first learn with a very simple function.
+
+If we have a macro like below:

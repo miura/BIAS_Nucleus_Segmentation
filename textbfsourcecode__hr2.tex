@@ -1,0 +1,11 @@
+\textbf{sourcecode} : \href{http://www.example.com/contents}{code/code\_recordNucSegV3.ijm}
+
+We now have a macro that segments nucleus rim. Save this macro.
+
+We move on to do the stack measurement.
+
+\subsection{Intensity Measurement using Mask}
+
+Using the isolated nucleus rim image, we could specify the region where we measure the intensity in the NPC channel (called ``redirection'' in ImageJ). We first do this in GUI: Open the rim binary image (if you closed it already, run the macro to regenerate it!) and the NPC image.
+
+Our aim is to write a macro that does the full processing starting from original two channel stack. But just for the reason to develop in modular way and assemble afterwards, we use the rim-segmented stack and the original NPC stack as source images to measure the NPC intensity at the nucleus rim. We combine the segmentation part afterwords. For this reason we merge rim-segmented stack and the NPC stack to create a mock-multichannel stack.

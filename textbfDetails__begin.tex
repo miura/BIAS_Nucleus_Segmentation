@@ -1,0 +1,42 @@
+\textbf{Details:}
+
+\begin{itemize}
+\item The first line grabs the window title as ``orgtitle''. 
+\item The second line splits the stacks to individual stacks for each channel.
+\item 3rd and 4th lines construct the window name of each channel stacks. 
+\item 5th line activates the channel 1 stack. 
+\item 6th line acquires the image ID of channel 1 stack. 
+\item 7th line activates the channel 2 stack. 
+\item 8th line acquires the image ID of channel 2 stack. 
+
+\end{itemize}
+
+In lines 6 and 7, we acquire image IDs. Here is some more explanation about this: Each window has a unique ID number. To get this ID number from each image we use the command \ilcom{getImageID()}.
+
+\begin{indentCom}
+\fbox{
+\parbox[b][8em][c]{0.80\textwidth}{
+\textbf{getImageID()} \\
+Returns the unique ID (a negative number) of the active image. Use the selectImage(id), isOpen(id) and isActive(id) functions to activate an image or to determine if it is open or active.
+}
+}
+
+\end{indentCom}
+
+A window can be activated by \ilcom{selectWindow} using its window title, but this could have a problem if there is another window with same name. Image ID has less problem since it is uniquly given to each window. To select a window using image ID, we use ``selectImage(ID)'' command.
+
+\begin{indentCom}
+\fbox{
+\parbox[b][8em][c]{0.80\textwidth}{
+\textbf{selectImage(id)} \\
+Activates the image with the specified ID (a negative number). If id is greater than zero, activates the idth image listed in the Window menu. The id can also be an image title (a string).
+}
+}
+
+\end{indentCom}
+
+We acquire image IDs just after the splitting for future use, when we want to specify the image we want to work on.
+
+\begin{indentexercise}
+{1}
+Test the code below and run it on different windows. Confirm that each window has different ID number.

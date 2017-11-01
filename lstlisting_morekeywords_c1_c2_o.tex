@@ -1,0 +1,17 @@
+\begin{lstlisting}[morekeywords={*, c1, c2, opt, getTitle}]
+orgName = getTitle();
+run("Split Channels");
+c1 = "C1-" + orgName;
+c2 = "C2-" + orgName;
+selectWindow(c1name);
+c1id = getImageID();
+selectWindow(c2name);
+c2id = getImageID();
+opt = "area mean centroid perimeter shape integrated limit display redirect=" + c1 + " decimal=3";
+run("Set Measurements...", opt);
+selectWindow( c2 );
+run("Create Selection");
+run("Make Inverse");
+run("Measure");
+
+\end{lstlisting}

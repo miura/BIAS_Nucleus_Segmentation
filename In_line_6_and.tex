@@ -1,0 +1,3 @@
+In line 6 and 7, image ID of the histone channel is captured. As we do not know if the histone channel image stack is the top window, I explicitly called the window by selectWindow command, and then read out the image ID. this imageID (nucorgID) is then passed to the function in line 8 (nucseg(nucorgID)). After the image processing in the function nucseg, output image ID is returned so we capture that ID by a variable nucrimID. Just to be sure, I activate the rim mask image stack by selectImage command in line 9 and then title of the window is read out. This title is then stored in the variable c1 (c1 was initially the title of the original histone image stack but now replaced by the rim mask stack). Form there, everything is same.
+
+Here is the final code.

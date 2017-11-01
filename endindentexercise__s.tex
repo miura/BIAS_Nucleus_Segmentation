@@ -1,0 +1,101 @@
+\end{indentexercise}
+
+\subsubsection{Isolating Rim Mask}
+
+Now we start working on the detection of nucleus rim. Save the channel splitting macro. When you name the file, add an extension ``.ijm'', as this indicates that the file is an ImageJ macro.
+
+Create a new tab in the script editor by \ilcom{[File > New]}. We work in a new file only to create a macro for the detection of nucleus rim. We assemble them later.
+
+Following is the step-by-step procedure. Try first from the GUI (mouse and the menu bar!). Then reopen the macro recorder to record history of commands. I recommend you to do so because the trial with GUI let you understand what is going on.
+
+\begin{enumerate}
+  \item Gaussian Blur
+
+\begin{itemize}
+    \item \ijmenu{[Process > Filter > Gaussian Blur]}, sigma = 1.5, Do Stack.
+    \item Blurring image slightly removes noise. Better results for the thresholding below.  
+  
+\end{itemize}
+  \item Find Threshold
+
+\begin{itemize}
+    \item \ijmenu{[Image > Adjust > Threshold]},  Otsu method
+    \item This simply changes the LUT, not the data. 
+  
+\end{itemize}
+  \item Apply Threshold: Click 'Apply'
+
+\begin{itemize}
+    \item Changes the data to black and white according to the above Otsu based threshold value. 
+  
+\end{itemize}
+  \item Find Threshold again (Otsu method)
+
+\begin{itemize}
+    \item We do this again for selecting nucleus for the ``AnalyzeParticle'' in the following.
+  
+\end{itemize}
+  \item Analyze Particles
+
+\begin{itemize}
+    \item \ijmenu{[Analyze > Analyze Particles]}
+    \item Options::
+
+\begin{itemize}
+      \item Size: 800-Infinity
+      \item Check ``Pixle Units''
+      \item Circularity: default (0 - 1.0)
+      \item Show: Mask
+      \item Check Display Results, Clear results, Exclude on edges, Include holes. 
+    
+\end{itemize}
+    \item We use AnalyzeParticle as a filter for segmented object. In our case, this filtering removes nucleus touching the edge of image. This way of usage is also effective in removing small none-nucleus signals. 
+  
+\end{itemize}
+  \item Use the "Mask" output. Invert LUT
+
+\begin{itemize}
+    \item \ijmenu{[Image > Look-up Table > Invert LUT]}
+  
+\end{itemize}
+  \item Duplicate Stack, because we erode one and dilate the other.
+
+\begin{itemize}
+    \item \ijmenu{[Image > Duplicate]}
+    \item Set Iterations \ijmenu{ [Process > Binary > Options]}
+
+\begin{itemize}
+      \item iterations 2 or 3
+      \item dark background
+    
+\end{itemize}
+    \item Original: Dilate \ijmenu{[Process > Binary > Dilate]}
+
+\begin{itemize}
+      \item This increases the edge of nucleus by 2 or 3 pixels. 
+    
+\end{itemize}
+    \item Duplicate: Erode \ijmenu{[Process > Binary > Erode]}
+
+\begin{itemize}
+      \item This decreases the edge of nucleus by 2 or 3 pixels. 
+    
+\end{itemize}
+  
+\end{itemize}
+  \item Image Subtraction
+
+\begin{itemize}
+    \item \ijmenu{[Process > Image Calculator]}
+    \item keep original, difference of Dilated and Eroded.
+
+\begin{itemize}
+      \item Leaves a band of 4 or 6 pixels at the edge of nucleus. 
+    
+\end{itemize}
+  
+\end{itemize}
+
+\end{enumerate}
+
+If you could successfully do the processing and its macro recording, check the results in the recorder. Below is an example of the direct output from the recorder.

@@ -1,0 +1,37 @@
+\textbf{sourcecode} : \href{http://www.example.com/contents}{code/code\_recordNucSegV2.ijm}
+
+Here is the explanation of what was done.
+
+\begin{itemize}
+  \item line 1: The first line is replaced with getImageID() command. 
+  \item line 10: getImageID() command inserted for a new image created by Analyze Particle command (in line 9). The new image is the mask that is eliminated with edge-touching nucleus. 
+  \item line 13: getImageID() command inserted for the duplicated image. 
+  \item line 15: selectWindow command in line 14 is commented out and replaced by selectImage command. 
+  \item line 19: similarly, selectWindow command is replaced by selectImage command. 
+  \item line 22: Because we now have imageIDs of both dilated and eroded images, we could replace the specific names of the images to imageID. Compare the line 21 (commented out) and the line 22. 
+
+\end{itemize}
+
+We are now almost done with the generalization of the code, but there still is a line that is not general. See line 12. This line using \ilcom{run} command to duplicate the stack.
+
+The command looks like this:
+
+\ilcom{run("Duplicate...", "title=[Mask of C1-NPCsingleNucleus-1.tif] duplicate range=1-15");}
+
+The first argument ``Duplicate\ldots'' is the menu item at \ijmenu{[Image > Duplicate\ldots]}. The second argument contains multiple optional values you choose in GUI. The first is the title of the image that will be duplicated. In the above case, a long name is given to the duplicated image. Square brackets surrounding the title is for suppressing problem with spaces in the name, because spaces are the separator for the options in the second argument. ``duplicate'' is a keyword for a checkbox in the duplication dialog, whether to duplicate multiple frames in a stack or just a single currently shown frame. The third option is a frame range, which defines the range of frames to be duplicated. Since we want to duplicate all frames, the range is set to 1-15, from first frame to the last 15th frame.
+
+There are two parameters in this command that are not flexible enough for various images. First is the title. We could have a more general name for the duplicated image. The second is the frame range.  The duplication of full stack should be achieved for stacks with any number of frame, not limited to 15 frames stacks.
+
+We can construct the option string (the second argument) as follows to solve these problems.
+
+\ilcom{options = "title = dup.tif duplicate range=1-" + nSlices}
+
+\ilcom{nSlices} is a macro function that returns the number of frames or slices in the current stack.
+
+We can now replace the second argument for image duplication by this new variable "options".
+
+\ilcom{run("Duplicate...", options);}
+
+\begin{indentexercise}
+{2}
+Create a new script tab and write the following code. Run it with several stacks with different frame numbers and confirm that this short macro successfully duplicate stacks with different slize numbers.

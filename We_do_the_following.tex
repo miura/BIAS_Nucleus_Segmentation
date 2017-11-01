@@ -1,0 +1,28 @@
+We do the following.
+
+\begin{enumerate}
+  \item \ijmenu{[Image > Color > Split Channels\ldots]}
+  \item \ijmenu{[Analysis > Set Measurements\ldots]}
+
+\begin{itemize}
+    \item Set the redirection to NPC stack. You will see a dialog window with many check boxes (\ref{fig:MeasSettingRedirect}). Among the parameters to be measured, check at least Area, Mean Gray Value and Integrated Intensity. Integrated Intensity is the sum of all pixel values. A very important setting is "Redirect to". By default ``None'' is selected in the drop-down menu, but here you select the NPC channel image.
+    \item Redirection of measurement means that the measured values are not from currently active image, but from another image specified in the setting window. In our case, we want to specify the region for measurement using rim image and do the measurement in the other image (NPC signal). 
+  
+\end{itemize}
+  \item Activate the rim image and do \ijmenu{[Edit > Selection > Create Selection]}
+
+\begin{itemize}
+    \item This selects the background, not the rim. 
+  
+\end{itemize}
+  \item \ijmenu{[Edit > Selection > make Inverse]}
+
+\begin{itemize}
+    \item Inverting the selection, now we are selecting the nucleus rim. 
+  
+\end{itemize}
+  \item \ijmenu{[Analyze > Measure]}
+
+\end{enumerate}
+
+Selection of the rim should look like figure \ref{fig_RoiNucRim}.

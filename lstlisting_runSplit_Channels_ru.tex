@@ -1,0 +1,9 @@
+\begin{lstlisting}
+run("Split Channels");
+run("Set Measurements...", "area mean centroid perimeter shape integrated limit display redirect=C2-Composite decimal=3");
+selectWindow("C1-Composite");
+run("Create Selection");
+run("Make Inverse");
+run("Measure");
+
+\end{lstlisting}

@@ -1,0 +1,7 @@
+\section{Introduction}
+
+ImageJ macro is a useful tool to automate image processing and analysis. In this tutorial, we learn how to write a macro for analyzing intensity dynamics from a time lapse sequence.
+
+Analysis is done by processing a two-channel image stack, a time lapse sequence of the process of NPC protein relocalizing from cytoplasm to the nuclear membrane\footnote{Courtesy of Andreas Boni}. Two images shown in figure \ref{fig:NucStrategy}  are from the first and the last time points of the movie\footnote{The original 4D hyperstack file is NPC1.tif. You could load the file via CourseModule plugin.}.
+
+Compare these images carefully. You might recognize that the green signal in the periphery of nuclei (red) is stronger in the second image. We want to write a macro to compare this difference in a quantitative way. The processing involves two steps: We first segment the nucleus in a first (histone) channel. Second, we use that segmented nucleus rim as a mask to measure the intensity changes in the second channel.

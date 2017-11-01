@@ -1,0 +1,9 @@
+\textbf{sourcecode} : \href{http://www.example.com/contents}{code/code\_recordNucSeg.ijm}
+
+This already is a macro that runs properly. But there is a problem: the code should be improved to increase the generality of code. Not general, because for example if you see the line 1, the command is
+
+\ilcom{selectWindow("C1-NPCsingleNucleus.tif");}.
+
+As explained in above already, this is a very specific command that activates only a window with specific title. We rather want to use ImageID. Since we know the ImageID of nucleus channel already (which we acquired after splitting the original image), we could use that ID number to activate the window we want to work on. For now we assume that the nucleus channel stack is at the top and replace the first line with \ilcom{getImageID()} command.
+
+Using image IDs, we could upgrade the code as follows.  If you go through the code towards bottom, we should also replace selectWindow function to selectImage funciton in line 12 and 15.
