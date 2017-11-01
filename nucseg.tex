@@ -186,13 +186,14 @@ Analysis is done by processing a two-channel image stack, a time lapse sequence 
 Compare these images carefully. You might recognize that the green signal in the periphery of nuclei (red) is stronger in the second image. We want to write a macro to compare this difference in a quantitative way. The processing involves two steps: We first segment the nucleus in a first (histone) channel. Second, we use that segmented nucleus rim as a mask to measure the intensity changes in the second channel. 
 
 \begin{figure}[htbp]
- \centering
- \subfloat[Time point 1]{\label{fig:NucTimePoint1}\includegraphics[width = 0.45\textwidth]{fig/NPC_T01.png}} 
- \quad
- \subfloat[Time point 15]{\label{fig:NucTimePoint15}\includegraphics[width = 0.45\textwidth]{fig/NPC_T15.png}} \\
+\centering
+\includegraphics[width=3in]{nucsegfig-NucStrategy.pdf}
+
  \caption{NPC localization difference at two time points: More NPC in nucleus periphery. }
+
  \label{fig:NucStrategy}
 \end{figure}
+
 
 This tutorial could be a good guide line for those interested in segmenting the edge (perimeter) of biological object, by learning a typical usage of morphological processing for segmenting object boundaries. 
 
@@ -223,20 +224,14 @@ To segment the nucleus rim, we take following steps. It's rather long but if you
 \end{enumerate}
 
 \begin{figure}[h!]
- \centering
- \subfloat[Original Nucleus Image]{\label{fig:originalNucleus}\includegraphics[width = 0.30\textwidth]{fig/OriginalNuc.png}} 
- \quad
- \subfloat[Blurred Nulcleus Image]{\label{fig:BlurredNucleus}\includegraphics[width = 0.30\textwidth]{fig/BlurredNuc.png}}
- \quad
- \subfloat[Binarized image, after thresholding.]{\label{fig:BInarizedNucleus}\includegraphics[width = 0.30\textwidth]{fig/ConvertedMask.png}} \\
- \subfloat[Dilated Binary Image]{\label{fig:dilatedBinary}\includegraphics[width = 0.30\textwidth]{fig/dilated.png}}
- \quad
- \subfloat[Eroded Binary Image]{\label{fig:erodedBinary}\includegraphics[width = 0.30\textwidth]{fig/eroded.png}}
- \quad
- \subfloat[Subtraction Result, the rim.]{\label{fig:NucleusRim}\includegraphics[width = 0.30\textwidth]{fig/NucRim.png}}
+\centering
+\includegraphics[width=3in]{nucsegfig-nucsegProc.pdf}
+
  \caption{Strategy of measurement.}
+
  \label{fig:nucsegProc}
 \end{figure}
+
 
 
 In the following we record most of the commands using the Command Recorder (\ijmenu{[Plugins > Macros > Record\ldots]}). I recommend you NOT to startup the command recorder from the beginning. Follow the protocol first using GUI. Record commands only when you become sure with what you are doing. When you use the command recorder, be sure that ``Macro'' is selected in the ``Record:'' drop down menu at the top-left corner of the recorder.
