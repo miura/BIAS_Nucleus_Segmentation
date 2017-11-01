@@ -13,7 +13,8 @@ For that detected figure
 import fileinput
 import re, os, sys, subprocess
 
-FIGURE_TEMPLATE_PATH = "/Users/miura/Dropbox/templates/latex_templates/template-standalone-figure.tex"
+#FIGURE_TEMPLATE_PATH = "/Users/miura/Dropbox/templates/latex_templates/template-standalone-figure.tex"
+FIGURE_TEMPLATE_PATH = "template-standalone-figure.tex"
 targettex = sys.argv[1] # target tex file, to be replaced with subfigured block. 
 figlabel = sys.argv[2] # the second argument is the figure label fig:XXXX - without "fig:" prefix
 #f = 'mod2all.tex'
@@ -88,7 +89,8 @@ def processOneFile(tex, lab):
             replacedfiledata = re.sub(compiledRe, newinnerFigBlock, filedata)
             print("==== writing replaced file")
             #print(replacedfiledata)
-            with open(outmergedfilename, 'w') as file:
+            #with open(outmergedfilename, 'w') as file:
+            with open(tex, 'w') as file:
                 file.write(replacedfiledata)
 
 def batchProcessTexFiles(layoutmd):
