@@ -10,7 +10,8 @@
  
 % \usepackage{courier} % Not (yet) supported by LaTeXML.
 \normalfont
-% \usepackage[T1]{fontenc} % Not (yet) supported by LaTeXML.
+\usepackage[T1]{fontenc} % Not (yet) supported by LaTeXML.
+\usepackage{pxfonts}
 
 \usepackage[footnotesize]{caption}
 \linespread{1.05}
@@ -37,6 +38,18 @@
 \definecolor{Medium}{gray}{.6}
 \definecolor{Light}{gray}{.8}
 \definecolor{shadecolor}{rgb}{0.9, 0.9, 1}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{olive}{rgb}{0.5, 0.5, 0}
+%\definecolor{blue}{rgb}{0, 0, 0.5}
+\definecolor{green}{rgb}{0, 0.5, 0}
+\definecolor{darkgreen}{rgb}{0, 0.3, 0}
+\definecolor{firebrick}{rgb}{1, 0.2, 0.2}
+\definecolor{dodgeblue}{rgb}{0.1, 0.4, 0.9}
+
+
 % \usepackage{epstopdf} % Not (yet) supported by LaTeXML.
 \usepackage{natbib}
 
@@ -110,40 +123,60 @@
 \newcommand*{\micro}[][]{\textmu}
 \usepackage{listings}
 
-\lstset{ 
-basicstyle=\small\ttfamily, 
-numbers=left,                   
-numberstyle=\footnotesize,      
-stepnumber=1,                   
-numbersep=5pt,                  
-backgroundcolor=\color{gray09},  
-keywordstyle=\color{red}, 	
-showspaces=false,               
-showstringspaces=false,         
-showtabs=false,                 
-tabsize=2,                      
-captionpos=b,                   
-breaklines=true,                
-title=\lstname,                 
-escapeinside={\%*}{*)},         
-morekeywords={*,...},            
-morecomment=[l]{//},
+%define ImageJ Macro language
+\lstdefinelanguage{IJmacro}{
+keywords={for, in, while, do, return, if, else, var, macro, function, true, false, NaN, PI},
+%keywordstyle=\color{blue}\bfseries,
+ndkeywords={Array.concat,Array.copy,Array.fill,Array.findMaxima,Array.findMinima,Array.fourier,Array.getSequence,Array.getStatistics,Array.getVertexAngles,Array.print,Array.rankPositions,Array.resample,Array.reverse,Array.rotate,Array.show,Array.slice,Array.sort,Array.trim,Dialog.addCheckbox,Dialog.addCheckboxGroup,Dialog.addChoice,Dialog.addHelp,Dialog.addMessage,Dialog.addNumber,Dialog.addRadioButtonGroup,Dialog.addSlider,Dialog.addString,Dialog.create,Dialog.getCheckbox,Dialog.getChoice,Dialog.getNumber,Dialog.getRadioButton,Dialog.getString,Dialog.setInsets,Dialog.setLocation,Dialog.show,Ext ,File.append,File.close,File.copy,File.dateLastModified,File.delete,File.directory,File.exists,File.getName,File.getParent,File.isDirectory,File.lastModified,File.length,File.makeDirectory,File.name,File.nameWithoutExtension,File.open,File.openAsRawString,File.openAsString,File.openDialog,File.openUrlAsString,File.rename,File.saveString,File.separator,Fit.doFit,Fit.f,Fit.getEquation,Fit.logResults,Fit.nEquations,Fit.nParams,Fit.p,Fit.plot,Fit.rSquared,Fit.showDialog,IJ.currentMemory,IJ.deleteRows,IJ.freeMemory,IJ.getToolName,IJ.log,IJ.maxMemory,IJ.pad,IJ.redirectErrorMessages,IJ.renameResults,List.clear,List.get,List.getList,List.getValue,List.set,List.setCommands,List.setList,List.setMeasurements,List.size,Overlay.activateSelection,Overlay.add,Overlay.addSelection,Overlay.clear,Overlay.copy,Overlay.drawEllipse,Overlay.drawLabels,Overlay.drawLine,Overlay.drawRect,Overlay.drawString,Overlay.hidden,Overlay.hide,Overlay.lineTo,Overlay.measure,Overlay.moveSelection,Overlay.moveTo,Overlay.paste,Overlay.remove,Overlay.removeSelection,Overlay.setPosition,Overlay.show,Overlay.size,Plot.add,Plot.addText,Plot.create,Plot.drawLine,Plot.drawNormalizedLine,Plot.drawVectors,Plot.getLimits,Plot.getValues,Plot.makeHighResolution,Plot.setAxisLabelSize,Plot.setBackgroundColor,Plot.setColor,Plot.setFontSize,Plot.setFormatFlags,Plot.setFrameSize,Plot.setJustification,Plot.setLegend,Plot.setLimits,Plot.setLimitsToFit,Plot.setLineWidth,Plot.setLogScaleX,Plot.setLogScaleY,Plot.setXYLabels,Plot.show,Plot.showValues,Plot.update,Plot.useTemplate,Roi.contains,Roi.getBounds,Roi.getCoordinates,Roi.getDefaultColor,Roi.getFillColor,Roi.getName,Roi.getProperties,Roi.getProperty,Roi.getSplineAnchors,Roi.getStrokeColor,Roi.getType,Roi.move,Roi.setFillColor,Roi.setName,Roi.setPolygonSplineAnchors,Roi.setPolylineSplineAnchors,Roi.setProperty,Roi.setStrokeColor,Roi.setStrokeWidth,Stack.getActiveChannels,Stack.getDimensions,Stack.getDisplayMode,Stack.getFrameInterval,Stack.getFrameRate,Stack.getOrthoViewsID,Stack.getPosition,Stack.getStatistics,Stack.getUnits,Stack.isHyperstack,Stack.setActiveChannels,Stack.setChannel,Stack.setDimensions,Stack.setDisplayMode,Stack.setFrame,Stack.setFrameInterval,Stack.setFrameRate,Stack.setOrthoViews,Stack.setPosition,Stack.setSlice,Stack.setTUnit,Stack.setZUnit,Stack.stopOrthoViews,Stack.swap,String.append,String.buffer,String.copy,String.copyResults,String.getResultsHeadings,String.paste,String.resetBuffer,String.show,abs,acos,asin,atan,atan2,autoUpdate,beep,bitDepth,calibrate,call,changeValues,charCodeAt,close,cos,d2s,doCommand,doWand,drawLine,drawOval,drawRect,drawString,dump,endsWith,eval,exec,exit,exp,fill,fillOval,fillRect,floodFill,floor,fromCharCode,getArgument,getBoolean,getBoundingRect,getCursorLoc,getDateAndTime,getDimensions,getDirectory,getDisplayedArea,getFileList,getFontList,getHeight,getHistogram,getImageID,getImageInfo,getInfo,getLine,getList,getLocationAndSize,getLut,getMetadata,getMinAndMax,getNumber,getPixel,getPixelSize,getProfile,getRawStatistics,getResult,getResultLabel,getResultString,getSelectionBounds,getSelectionCoordinates,getSliceNumber,getStatistics,getString,getStringWidth,getThreshold,getTime,getTitle,getValue,getVersion,getVoxelSize,getWidth,getZoom,imageCalculator,indexOf,is,isActive,isKeyDown,isNaN,isOpen,lastIndexOf,lengthOf,lineTo,log,makeArrow,makeEllipse,makeLine,makeOval,makePoint,makePolygon,makeRectangle,makeSelection,makeText,matches,maxOf,minOf,moveTo,nImages,nResults,nSlices,newArray,newImage,newMenu,open,parseFloat,parseInt,pow,print,random,rename,replace,requires,reset,resetMinAndMax,resetThreshold,restoreSettings,roiManager,round,run,runMacro,save,saveAs,saveSettings,screenHeight,screenWidth,selectImage,selectWindow,selectionContains,selectionName,selectionType,setAutoThreshold,setBackgroundColor,setBatchMode,setColor,setFont,setForegroundColor,setJustification,setKeyDown,setLineWidth,setLocation,setLut,setMetadata,setMinAndMax,setOption,setPasteMode,setPixel,setRGBWeights,setResult,setSelectionLocation,setSelectionName,setSlice,setThreshold,setTool,setVoxelSize,setZCoordinate,setupUndo,showMessage,showMessageWithCancel,showProgress,showStatus,showText,sin,snapshot,split,sqrt,startsWith,substring,tan,toBinary,toHex,toLowerCase,toScaled,toString,toUnscaled,toUpperCase,toolID,updateDisplay,updateResults,wait,waitForUser},
+%ndkeywordstyle=\color{darkgray}\bfseries,
+%identifierstyle=\color{black},
+sensitive=false,
+comment=[l]{//},
 morecomment=[s]{/*}{*/},
+%commentstyle=\color{purple}\ttfamily,
+%stringstyle=\color{red}\ttfamily,
+morestring=[b]',
 morestring=[b]",
+morestring=[b]”,
 }
+
+\lstdefinestyle{mystyle2}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegray}\it,
+    keywordstyle=\color{dodgeblue}\bfseries,
+    ndkeywordstyle=\color{darkgreen},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{firebrick},
+    %basicstyle=\footnotesize,
+    basicstyle=\small,
+    language=IJmacro,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=right,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=6
+}
+ 
+\lstset{style=mystyle2}
+
 \newcommand*{\titleTH}[][]{\begingroup
 \raggedleft
 \HRule\\
 \vspace*{\baselineskip}
 {\Large Kota Miura}\\[0.167\textheight]
 
-{\bfseries BIAS course 2016}\\[\baselineskip]
-{\textcolor{Medium}{\Huge Intensity Dynamics at the Periphery of Nucleus }}\\[\baselineskip]
-{\small June, 2016}\par
+{\bfseries NEUBIAS Textbook Series}\\[\baselineskip]
+{\textcolor{Medium}{\big Intensity Dynamics at the Periphery of Nucleus }}\\[\baselineskip]
+{\small  Continuous release}\par
 \vfill
 
 {\small Compiled on \today}\par
-{\Large EMBL Heidelberg}\par
+{\Large NEUBIAS}\par
 \vspace*{3\baselineskip}
 \HRule\\
 \endgroup}
