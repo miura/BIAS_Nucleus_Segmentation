@@ -9,17 +9,18 @@ For this we first need to identify where the nuclear rim is (``segmentation''). 
 To segment the nucleus rim, we take following steps. It's rather long but if you once write a macro everything could be done by running the macro by a single click.
 
 \begin{enumerate}
-    \item Split channels (fig. \ref{fig:nucsegProc}a)
-    \item Blur the image (fig. \ref{fig:fig:nucsegProc})
+  \item Split channels (fig. \ref{fig:originalNucleus})
+    \item Blur the image (fig. \ref{fig:BlurredNucleus})
     \item Binarize the image by intensity thresholding (fig. \ref{fig:BInarizedNucleus})
     \item Remove other Nucleus
     \item Duplicate the image
 
-    \begin{enumerate}
+\begin{enumerate}
         \item Erode one of them (fig. \ref{fig:erodedBinary})
-        \item Dilate one of them (fig. \ref{fig:dilatedBinary})
 
-    \end{enumerate}
+\item Dilate one of them (fig. \ref{fig:dilatedBinary})
+
+\end{enumerate}
     \item Subtract the eroded from the dilated (fig. \ref{fig:NucleusRim})
 
 \end{enumerate}
