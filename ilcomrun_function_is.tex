@@ -1,9 +1,9 @@
 \ilcom{run} function is the most frequently used build-in macro function.
 
-\begin{indent}
+\begin{indentCom}
   \textbf{run("command"[, "options"])} 
   Executes an ImageJ menu command. The optional second argument contains values that are automatically entered into dialog boxes (must be GenericDialog or OpenDialog). Use the Command Recorder (Plugins>Macros>Record) to generate run() function calls. Use string concatenation to pass a variable as an argument. With ImageJ 1.43 and later, variables can be passed without using string concatenation by adding "\&" to the variable name.
-}
+\
 
 The run function takes a menu item as the first argument, and optional values (values you fill in in dialog for many of the functions) in the second argument. In case of channel splitting, there is no option so the second argument is ignored.
 
