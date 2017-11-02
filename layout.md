@@ -37,9 +37,7 @@ lstlisting_a__10_b.tex
 It_probably_is_evide.tex
 lstlisting_morekeywords_functio.tex
 beginindentexercise_.tex
-lstlisting_morekeywords_functio.tex
 textbfsourcecode__hr4.tex
 lstlisting_orgName__getTitle_ru.tex
 In_line_6_and.tex
-lstlisting_morekeywords_functio.tex
 textbfsourcecode_.tex
