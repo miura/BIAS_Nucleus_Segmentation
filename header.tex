@@ -105,15 +105,25 @@
 }
 {\end{list}
 }
+%\newenvironment{indentCom}
+%{
+%\begin{list}
+%{}
+%         {\setlength{\leftmargin}{1em}}
+%         \item[]
+%}
+%{\end{list}
+%}
 \newenvironment{indentCom}
-{
-\begin{list}
-{}
-         {\setlength{\leftmargin}{1em}}
-         \item[]
-}
-{\end{list}
-}
+    {\begin{tabular}{|p{0.8\textwidth}|}
+    \hline\\
+    }
+    { 
+    \\\\\hline
+    \end{tabular} 
+    }
+
+
 \newcommand{\ijmenu}[1]{\textit{#1}}
 \newcommand{\ilcom}[1]{\textit{#1}}
 \newcommand{\tab}[][]{\hspace*{3em}}
